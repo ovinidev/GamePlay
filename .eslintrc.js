@@ -63,5 +63,6 @@ module.exports = {
     'max-len': 'off',
     'arrow-body-style': 'off',
     'no-unused-vars': 'off',
+    camelcase: 'off',
   },
 };
