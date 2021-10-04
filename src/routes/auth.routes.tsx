@@ -6,14 +6,19 @@ import { Home } from '../screens/Home';
 import { SignIn } from '../screens/SignIn';
 import { theme } from '../global/styles/theme';
 
-const { Navigator, Screen } = createStackNavigator();
+export type AuthRoutesProps = {
+  SignIn: undefined,
+  Home: undefined,
+}
+
+const { Navigator, Screen } = createStackNavigator<AuthRoutesProps>();
 
 export function AuthRoutes() {
   return (
     <Navigator
       screenOptions={{
         cardStyle: {
-          backgroundColor: 'theme.colors.secondary100',
+          backgroundColor: theme.colors.secondary100,
         },
         headerShown: false,
       }}>

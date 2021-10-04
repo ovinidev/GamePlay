@@ -1,15 +1,26 @@
+/* eslint-disable react/jsx-no-bind */
 import React from 'react';
 import {
-  Text, View, Image, 
+  Text, View, Image,
 } from 'react-native';
 
+import { StackNavigationProp } from '@react-navigation/stack';
 import { styles } from './styles';
 
 import IllustrationImg from '../../assets/illustration.png';
 
 import { ButtonIcon } from '../../components/ButtonIcon';
+import { AuthRoutesProps } from '../../routes/auth.routes';
 
-export function SignIn() {
+type Props = {
+  navigation: StackNavigationProp<AuthRoutesProps>
+}
+
+export function SignIn({ navigation }: Props) {
+  function handleSignIn() {
+    navigation.navigate('Home');
+  }
+
   return (
     <View style={styles.container}>
 
@@ -22,7 +33,7 @@ export function SignIn() {
         <Text style={styles.title}>
           Conecte-se {'\n'}
           e organize suas {'\n'}
-          jogatinas 
+          jogatinas
         </Text>
 
         <Text style={styles.subtitle}>
@@ -32,7 +43,7 @@ export function SignIn() {
 
         <ButtonIcon
           title={'Entrar com Discord'}
-          activeOpacity={0.7} />
+          onPress={handleSignIn} />
       </View>
     </View>
 
