@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
 
 import { useNavigation, NavigationProp } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
 import { styles } from './styles';
 
 import { Profile } from '../../components/Profile';
@@ -60,11 +59,15 @@ export function Home({ navigation }: Props) {
     navigation.navigate('AppointmentDetails');
   }
 
+  function handleAppointmentsCreate() {
+    navigation.navigate('AppointmentCreate');
+  }
+
   return (
     <Background>
       <View style={styles.header}>
         <Profile />
-        <ButtonAdd />
+        <ButtonAdd onPress={handleAppointmentsCreate} />
       </View>
 
       <CategorySelect
